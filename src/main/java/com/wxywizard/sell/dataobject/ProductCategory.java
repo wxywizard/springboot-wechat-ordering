@@ -8,7 +8,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Date;
 
 /**
- * @Author: wangxy
+ * @Author: wxywizard
  */
 @Table(name = "product_category")
 @Entity
