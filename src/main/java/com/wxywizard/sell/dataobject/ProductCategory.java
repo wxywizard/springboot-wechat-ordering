@@ -4,8 +4,6 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.Date;
 
 /**
  * @Author: wxywizard
