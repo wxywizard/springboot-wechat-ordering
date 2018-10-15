@@ -20,8 +20,8 @@ public class OrderDetail {
 
     /** 主键. */
     @Id
-    @GenericGenerator(name = "system-uuid",strategy = "uuid")
-    @GeneratedValue(generator = "system-uuid")
+    /*@GenericGenerator(name = "system-uuid",strategy = "uuid")
+    @GeneratedValue(generator = "system-uuid")*/
     private String detailId;
 
     /** 订单id. */

@@ -17,8 +17,8 @@ import java.math.BigDecimal;
 public class ProductInfo {
 
     @Id
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-    @GeneratedValue(generator = "system-uuid")
+    /*@GenericGenerator(name="system-uuid",strategy = "uuid")
+    @GeneratedValue(generator = "system-uuid")*/
     private String productId;
 
     /** 名字. */
