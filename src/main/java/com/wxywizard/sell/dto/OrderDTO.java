@@ -1,13 +1,10 @@
 package com.wxywizard.sell.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.wxywizard.sell.dataobject.OrderDetail;
-import com.wxywizard.sell.enums.OrderStatusEnum;
-import com.wxywizard.sell.enums.PayStatusEnum;
+import com.wxywizard.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +13,8 @@ import java.util.List;
  * @Author: wxywizard
  */
 @Data
+//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL) 已废弃  处理为null 字段不返回
+//@JsonInclude(JsonInclude.Include.NON_NULL) 单个实体类这样处理，全局可以再配置文件配置jackson
 public class OrderDTO {
     /** 订单id. */
     private String orderId;
@@ -42,9 +41,11 @@ public class OrderDTO {
     private Integer payStatus;
 
     /** 创建时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     /** 更新时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     private List<OrderDetail> orderDetailList;

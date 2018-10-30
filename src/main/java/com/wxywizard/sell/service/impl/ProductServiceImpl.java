@@ -32,6 +32,9 @@ public class ProductServiceImpl implements ProductService {
         productInfo.setProductId(productId);
         Example<ProductInfo> example = Example.of(productInfo);
         Optional<ProductInfo> optional = repository.findOne(example);
+        if (!optional.isPresent()){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
         return optional.get();
     }
 

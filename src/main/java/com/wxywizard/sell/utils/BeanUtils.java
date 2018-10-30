@@ -10,6 +10,7 @@ import java.lang.reflect.Modifier;
 
 /**
  * @Author: wxywizard
+ * 解决属性值为null不复制
  */
 public abstract class BeanUtils extends org.springframework.beans.BeanUtils {
 

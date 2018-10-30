@@ -6,6 +6,9 @@ spring:
     url: jdbc:mysql://172.20.36.175/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+  #设置全局实体类属性值为null时不返回该字段
+  jackson:
+    default-property-inclusion: non_null
 
 #定义整体项目前缀
 server:

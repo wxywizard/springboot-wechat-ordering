@@ -74,7 +74,7 @@ public class OrderServiceImpl implements OrderService {
         }
         //3.写入订单数据库（orderMaster和orderDetail）
         OrderMaster orderMaster = new OrderMaster();
-        orderMaster.setOrderId(orderId);
+        orderDTO.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
         com.wxywizard.sell.utils.BeanUtils.copyPropertiesNotNull(orderDTO,orderMaster);
         orderMasterRepository.save(orderMaster);
@@ -91,6 +91,9 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO findOne(String orderId) {
         OrderMaster orderMasterQuery = new OrderMaster();
         orderMasterQuery.setOrderId(orderId);
+        //当实体类存在默认值时，可以将其设置为null在使用findOne查询，否则查询时会加入默认条件
+        orderMasterQuery.setOrderStatus(null);
+        orderMasterQuery.setPayStatus(null);
         Example<OrderMaster> example = Example.of(orderMasterQuery);
         Optional<OrderMaster> optional = orderMasterRepository.findOne(example);
         //optional.orElse(null) == null 或 !optional.isPresent() 均可判断有无该对象

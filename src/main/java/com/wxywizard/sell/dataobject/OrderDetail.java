@@ -1,5 +1,7 @@
 package com.wxywizard.sell.dataobject;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.wxywizard.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
@@ -43,8 +45,10 @@ public class OrderDetail {
     private String productIcon;
 
     /** 创建时间.*/
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     /** 更新时间.*/
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 }
