@@ -1,8 +1,6 @@
 package com.wxywizard.sell.exception;
 
 import com.wxywizard.sell.enums.ResultEnum;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 /**
  * @Author: wxywizard

@@ -1,6 +1,5 @@
 package com.wxywizard.sell.enums;
 
-import lombok.Data;
 import lombok.Getter;
 
 /**

@@ -1,15 +1,15 @@
 package com.wxywizard.sell.controller;
 
-import com.wxywizard.form.OrderForm;
+
 import com.wxywizard.sell.converter.OrderForm2OrderDTOConverter;
 import com.wxywizard.sell.dto.OrderDTO;
 import com.wxywizard.sell.enums.ResultEnum;
 import com.wxywizard.sell.exception.SellException;
+import com.wxywizard.sell.form.OrderForm;
 import com.wxywizard.sell.service.BuyerService;
 import com.wxywizard.sell.service.OrderService;
 import com.wxywizard.sell.utils.ResultVOUtil;
 import com.wxywizard.sell.vo.ResultVO;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -77,7 +77,7 @@ public class BuyerOrderController {
     //订单详情
     @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
-                                        @RequestParam("orderId") String orderId){
+                                     @RequestParam("orderId") String orderId){
 
         OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
         return ResultVOUtil.success(orderDTO);

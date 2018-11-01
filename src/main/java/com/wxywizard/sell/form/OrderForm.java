@@ -1,4 +1,4 @@
-package com.wxywizard.form;
+package com.wxywizard.sell.form;
 
 import lombok.Data;
 

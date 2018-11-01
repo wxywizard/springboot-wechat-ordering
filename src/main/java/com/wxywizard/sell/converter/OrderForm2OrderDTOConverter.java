@@ -3,13 +3,12 @@ package com.wxywizard.sell.converter;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
-import com.wxywizard.form.OrderForm;
+import com.wxywizard.sell.form.OrderForm;
 import com.wxywizard.sell.dataobject.OrderDetail;
 import com.wxywizard.sell.dto.OrderDTO;
 import com.wxywizard.sell.enums.ResultEnum;
 import com.wxywizard.sell.exception.SellException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
 import java.util.List;
