@@ -25,7 +25,9 @@ public class OrderForm2OrderDTOConverter {
         orderDTO.setBuyerName(orderForm.getName());
         orderDTO.setBuyerPhone(orderForm.getPhone());
         orderDTO.setBuyerAddress(orderForm.getAddress());
-        orderDTO.setBuyerOpenid(orderForm.getOpenid());
+        //orderDTO.setBuyerOpenid(orderForm.getOpenid());
+        //借号调试支付
+        orderDTO.setBuyerOpenid("oTgZpwaB4RDLIVFlQH_5dzSOJREo");
         List<OrderDetail> orderDetailList = new ArrayList<>();
         //通过gson转换String 为list
         try {

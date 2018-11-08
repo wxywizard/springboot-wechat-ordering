@@ -42,11 +42,12 @@ public class ProductServiceImplTest {
     @Test
     public void save() {
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductName("皮皮虾");
+        productInfo.setProductId("654321");
+        productInfo.setProductName("鸡蛋");
         productInfo.setProductPrice(new BigDecimal(3.2));
         productInfo.setProductStock(100);
-        productInfo.setProductDescription("很好吃的菜");
-        productInfo.setProductStatus(1);
+        productInfo.setProductDescription("很好吃的蛋");
+        productInfo.setProductStatus(0);
         productInfo.setProductIcon("http://xxxxxx.jpg");
         productInfo.setCategoryType(2);
 

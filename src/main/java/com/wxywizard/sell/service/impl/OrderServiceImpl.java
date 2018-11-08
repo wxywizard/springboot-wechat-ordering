@@ -13,6 +13,7 @@ import com.wxywizard.sell.exception.SellException;
 import com.wxywizard.sell.repository.OrderDetailRepository;
 import com.wxywizard.sell.repository.OrderMasterRepository;
 import com.wxywizard.sell.service.OrderService;
+import com.wxywizard.sell.service.PayService;
 import com.wxywizard.sell.service.ProductService;
 import com.wxywizard.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -47,6 +48,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+
+    @Autowired
+    private PayService payService;
 
     @Override
     @Transactional
@@ -150,7 +154,7 @@ public class OrderServiceImpl implements OrderService {
 
         //如果以支付需退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())){
-            //TODO
+            payService.refund(orderDTO);
         }
         return orderDTO;
     }
@@ -199,4 +203,14 @@ public class OrderServiceImpl implements OrderService {
         }
         return orderDTO;
     }
+
+    @Override
+    public Page<OrderDTO> findList(Pageable pageable) {
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+        List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
+        Page<OrderDTO> orderDTOPage = new PageImpl<>(orderDTOList,pageable,orderMasterPage.getTotalElements());
+        return orderDTOPage;
+    }
+
+
 }
