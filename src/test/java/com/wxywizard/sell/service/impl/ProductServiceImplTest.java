@@ -1,6 +1,7 @@
 package com.wxywizard.sell.service.impl;
 
 import com.wxywizard.sell.dataobject.ProductInfo;
+import com.wxywizard.sell.enums.ProductStatusEnum;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,5 +54,19 @@ public class ProductServiceImplTest {
 
         ProductInfo result = productService.save(productInfo);
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void onSale(){
+
+        ProductInfo result = productService.onSale("123456");
+        Assert.assertEquals(ProductStatusEnum.UP,result.getProductStatusEnum());
+    }
+
+    @Test
+    public void offSale(){
+
+        ProductInfo result = productService.offSale("123456");
+        Assert.assertEquals(ProductStatusEnum.DOWN,result.getProductStatusEnum());
     }
 }

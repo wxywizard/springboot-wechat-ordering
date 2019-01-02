@@ -2,6 +2,7 @@ package com.wxywizard.sell.service.impl;
 
 import com.wxywizard.sell.dataobject.ProductInfo;
 import com.wxywizard.sell.dto.CartDTO;
+import com.wxywizard.sell.enums.PayStatusEnum;
 import com.wxywizard.sell.enums.ProductStatusEnum;
 import com.wxywizard.sell.enums.ResultEnum;
 import com.wxywizard.sell.exception.SellException;
@@ -95,5 +96,43 @@ public class ProductServiceImpl implements ProductService {
             productInfo.setProductStock(result);
             repository.save(productInfo);
         }
+    }
+
+    @Override
+    public ProductInfo onSale(String productId) {
+        ProductInfo productInfoExample = new ProductInfo();
+        productInfoExample.setProductId(productId);
+        Example<ProductInfo> example = Example.of(productInfoExample);
+        Optional<ProductInfo> optional = repository.findOne(example);
+        if (!optional.isPresent()){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        ProductInfo productInfo = optional.get();
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.UP){
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+        //更新
+        productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
+
+        return repository.save(productInfo);
+    }
+
+    @Override
+    public ProductInfo offSale(String productId) {
+        ProductInfo productInfoExample = new ProductInfo();
+        productInfoExample.setProductId(productId);
+        Example<ProductInfo> example = Example.of(productInfoExample);
+        Optional<ProductInfo> optional = repository.findOne(example);
+        if (!optional.isPresent()){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        ProductInfo productInfo = optional.get();
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.DOWN){
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+        //更新
+        productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
+
+        return repository.save(productInfo);
     }
 }
