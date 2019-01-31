@@ -35,7 +35,11 @@
                         <div class="form-group">
                             <label>类目</label>
                             <select name="categoryType" class="form-control">
-
+                                   <#list categoryList as category>
+                                       <option value="${category.categoryType}">
+                                             ${category.categoryName}
+                                       </option>
+                                   </#list>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
