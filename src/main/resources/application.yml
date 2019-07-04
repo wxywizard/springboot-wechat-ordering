@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://172.20.36.170/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://172.20.36.175/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
   #设置全局实体类属性值为null时不返回该字段
@@ -22,7 +22,14 @@ wechat:
   mpAppId: wx557a6ea91652f1d1
   #mpAppId: wxd898fcb01713c658
   mpAppSecret: 338677634e7f31c11add1cc3314b2a6c
+  openAppId: 123
+  openAppSecret: 123
   mchId: 1483469312
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath: /var/weixin_cert/h5.p12
   notifyUrl: http://wxywizard.natapp1.cc/sell/pay/notify
+
+projectUrl:
+  wechatMpAuthorize: http://lsx888.natapp1.cc
+  wechatOpenAuthorize: http://lsx888.natapp1.cc
+  sell: http://lsx888.natapp1.cc
