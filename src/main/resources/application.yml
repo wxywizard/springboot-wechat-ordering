@@ -9,6 +9,9 @@ spring:
   #设置全局实体类属性值为null时不返回该字段
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: 172.20.36.175
+    port: 6379
 
 #定义整体项目前缀
 server:
@@ -28,8 +31,10 @@ wechat:
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath: /var/weixin_cert/h5.p12
   notifyUrl: http://wxywizard.natapp1.cc/sell/pay/notify
+  templateId:
+    orderStatus: e-cc
 
 projectUrl:
   wechatMpAuthorize: http://lsx888.natapp1.cc
   wechatOpenAuthorize: http://lsx888.natapp1.cc
-  sell: http://lsx888.natapp1.cc
+  sell: http://172.20.36.177:2019
