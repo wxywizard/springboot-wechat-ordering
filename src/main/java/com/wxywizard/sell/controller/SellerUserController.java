@@ -8,6 +8,7 @@ import com.wxywizard.sell.enums.ResultEnum;
 import com.wxywizard.sell.service.SellerService;
 import com.wxywizard.sell.utils.CookieUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,6 +53,10 @@ public class SellerUserController {
          //2.设置token至redis
           String token = UUID.randomUUID().toString();
           Integer expire = RedisConstant.EXPIRE;
+            //设置redis不同库
+//          JedisConnectionFactory jedisConnectionFactory = (JedisConnectionFactory) redisTemplate.getConnectionFactory();
+//          jedisConnectionFactory.setDatabase(5);
+//          redisTemplate.setConnectionFactory(jedisConnectionFactory);
           redisTemplate.opsForValue().set(String.format(RedisConstant.TOKEN_PREFIX,token),openid,expire, TimeUnit.SECONDS);
          //3.设置token至cookie
           CookieUtil.set(response, CookieConstant.TOKEN,token,expire);

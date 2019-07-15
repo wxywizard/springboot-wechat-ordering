@@ -1,11 +1,13 @@
 package com.wxywizard.sell.exception;
 
 import com.wxywizard.sell.enums.ResultEnum;
+import lombok.Getter;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Author: wxywizard
  */
+@Getter
 public class SellException extends RuntimeException{
 
     private  Integer code;
