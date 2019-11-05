@@ -2,14 +2,17 @@ package com.wxywizard.sell.vo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 
 /**
  * http请求返回的最外层对象
  * @Author: wxywizard
  */
 @Data
-public class ResultVO<T> {
+public class ResultVO<T> implements Serializable {
 
+    private static final long serialVersionUID = 2260610772478034068L;
     /** 错误码. */
     private Integer code;
 
