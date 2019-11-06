@@ -22,15 +22,21 @@ server:
 
 
 wechat:
+  #公众账号，授权
   mpAppId: wx557a6ea91652f1d1
   #mpAppId: wxd898fcb01713c658
   mpAppSecret: 338677634e7f31c11add1cc3314b2a6c
+  #开放平台，卖家扫码登录用
   openAppId: 123
   openAppSecret: 123
+  #支付/商户号
   mchId: 1483469312
   mchKey: C5245D70627C1F8E9964D494B0735025
+  # 发起支付不需要证书，退款需要
   keyPath: /var/weixin_cert/h5.p12
+  #异步消息通知
   notifyUrl: http://wxywizard.natapp1.cc/sell/pay/notify
+  # 消息模板
   templateId:
     orderStatus: e-cc
 
