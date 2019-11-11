@@ -2,7 +2,6 @@ package com.wxywizard.sell.aspect;
 
 import com.wxywizard.sell.constant.CookieConstant;
 import com.wxywizard.sell.constant.RedisConstant;
-import com.wxywizard.sell.exception.SellException;
 import com.wxywizard.sell.exception.SellerAuthorizeException;
 import com.wxywizard.sell.utils.CookieUtil;
 import lombok.extern.slf4j.Slf4j;
